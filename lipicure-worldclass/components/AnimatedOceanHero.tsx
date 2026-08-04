@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import LivingBubbles from '@/components/ocean-v2/LivingBubbles';
 
 /**
  * Performance-first ocean hero.
@@ -29,6 +30,7 @@ export default function AnimatedOceanHero() {
   return (
     <div ref={root} className="animated-ocean-hero" aria-hidden="true">
       <div className="ocean-image" />
+      <LivingBubbles />
       <div className="fish-school fish-school-one">
         {Array.from({ length: 9 }).map((_, i) => <span key={i} style={{ '--fish-i': i } as React.CSSProperties} />)}
       </div>

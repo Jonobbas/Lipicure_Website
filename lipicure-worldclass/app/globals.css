@@ -165,3 +165,69 @@ a { color: inherit; text-decoration: none; }
 @media(max-width:900px){.pearl-workflow{grid-template-columns:1fr}.pearl-stage-list{grid-template-columns:repeat(2,1fr)}.design-space-grid{grid-template-columns:repeat(2,1fr)}.trl-timeline{grid-template-columns:repeat(2,1fr);gap:28px}.trl-timeline article{padding-right:0}}
 @media(max-width:620px){.animated-ocean-hero{transform:none}.ocean-image{background-position:68% center}.fish-school-one{right:-28%;top:30%;transform:scale(.7)}.fish-school-two,.jelly-two{display:none}.pearl-stage-list{grid-template-columns:1fr}.design-space-grid{grid-template-columns:1fr}.trl-timeline{grid-template-columns:1fr}.pearl-stage-detail{min-height:360px}}
 @media(prefers-reduced-motion:reduce){.animated-ocean-hero{transform:none;transition:none}.fish-school,.fish-school span,.jelly,.jelly i,.jelly b,.jelly em{animation:none!important}}
+
+/* Phase 6.1 — Living bubbles */
+.living-bubble {
+  position: absolute;
+  bottom: -20px;
+  display: block;
+  border-radius: 9999px;
+  border: 1px solid rgba(207, 250, 254, 0.45);
+  background:
+    radial-gradient(
+      circle at 32% 28%,
+      rgba(255, 255, 255, 0.75) 0%,
+      rgba(165, 243, 252, 0.25) 28%,
+      rgba(34, 211, 238, 0.08) 58%,
+      transparent 76%
+    );
+  box-shadow:
+    inset 0 0 3px rgba(255, 255, 255, 0.25),
+    0 0 5px rgba(34, 211, 238, 0.08);
+  animation-name: lipicure-bubble-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes lipicure-bubble-rise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.72);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: inherit;
+  }
+
+  45% {
+    transform:
+      translate3d(calc(var(--bubble-drift) * 0.45), -48vh, 0)
+      scale(0.92);
+  }
+
+  75% {
+    transform:
+      translate3d(calc(var(--bubble-drift) * -0.25), -78vh, 0)
+      scale(1);
+  }
+
+  100% {
+    transform:
+      translate3d(var(--bubble-drift), -112vh, 0)
+      scale(1.08);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .living-bubble:nth-child(n + 61) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .living-bubble {
+    display: none;
+  }
+}
