@@ -1,17 +1,70 @@
 import ArticleShell from '@/components/content/ArticleShell';
 
-const timeline = [
-  ['Heavy engineering','Nearly two decades across manufacturing, quality and complex energy-project environments developed a strong foundation in execution, process discipline and scale.'],
-  ['Lean and Toyota Production System','Lean thinking created a lasting interest in flow, waste elimination, standard work, learning systems and operational excellence.'],
-  ['Lean Startup and Agile','Startup methodology and sprint-based development provided a practical way to test assumptions, learn faster and avoid building the wrong solution.'],
-  ['Kanniyakumari and the marine economy','Exposure to coastal Tamil Nadu, conversations with industry participants and the abundance of pelagic marine resources made the value gap visible.'],
-  ['Scientists and collaborators','Discussions with researchers, professors, incubators and industry experts shaped the venture from a product idea into a marine biotechnology platform.'],
-  ['LipiCure','The venture now aims to integrate science, engineering, digital intelligence and commercialisation to build repeatable pathways from marine ideas to technologies.']
-];
+export default function FounderStoryPage() {
+  return (
+    <ArticleShell
+      eyebrow="Origin Story"
+      title="The Journey Behind LipiCure"
+      intro="LipiCure began as a question: how can disciplined engineering systems help translate scientific ideas into repeatable, commercially meaningful outcomes?"
+    >
+      <div className="space-y-10">
+        <section>
+          <h2 className="text-3xl font-semibold">Engineering Before Entrepreneurship</h2>
+          <p className="mt-4 leading-8 text-slate-300">
+            Nearly two decades in heavy engineering, manufacturing quality and complex
+            project environments shaped a strong belief: scientific breakthroughs create
+            real impact only when they become repeatable systems.
+          </p>
+        </section>
 
-export default function FounderStoryPage(){
-  return <ArticleShell eyebrow="Origin Story" title="From Heavy Engineering to Marine Biotechnology" intro="LipiCure emerged from the founder’s long-term study of how disciplined systems can convert complex ideas into reliable industrial outcomes.">
-    <div className="space-y-4">{timeline.map(([title,text],index)=><div key={title} className="grid-card p-6 md:grid md:grid-cols-[70px_1fr] md:gap-5"><div className="text-3xl text-cyanx">{String(index+1).padStart(2,'0')}</div><div><h2 className="text-2xl font-semibold">{title}</h2><p className="mt-3 leading-7 text-slate-300">{text}</p></div></div>)}</div>
-    <blockquote className="mt-10 border-l-2 border-cyanx pl-6 text-2xl leading-10 text-slate-200">“I don’t build products first. I build systems that repeatedly create successful products.”</blockquote>
-  </ArticleShell>
+        <section>
+          <h2 className="text-3xl font-semibold">The Ocean Changed the Question</h2>
+          <p className="mt-4 leading-8 text-slate-300">
+            Exposure to Kanniyakumari&apos;s marine economy, combined with industry analysis
+            and academic research, revealed a significant gap between India&apos;s strength
+            in marine resources and its output of high-value biotechnology.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-3xl font-semibold">Conversations That Became a Venture</h2>
+          <p className="mt-4 leading-8 text-slate-300">
+            The idea evolved through repeated discussions at home with Sowjanniya. Her own
+            entrepreneurial journey—from building a café venture to developing a precision
+            machining unit now under operation—brought a practical business perspective to
+            the engineering vision.
+          </p>
+          <p className="mt-4 leading-8 text-slate-300">
+            Those conversations helped transform a technical possibility into an
+            entrepreneurial pathway led by Sowjanniya, while the engineering and systems
+            vision continued to draw from years of industrial experience.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-3xl font-semibold">Building the Ecosystem</h2>
+          <p className="mt-4 leading-8 text-slate-300">
+            LipiCure was shaped through discussions with industry professionals, academic
+            researchers, marine scientists, incubators, mentors and potential collaborators.
+            Each interaction refined the problem, tested the assumptions and strengthened
+            the venture model.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-3xl font-semibold">The Birth of LipiCure</h2>
+          <p className="mt-4 leading-8 text-slate-300">
+            LipiCure represents the convergence of engineering discipline, entrepreneurial
+            leadership, digital intelligence and marine science. It is being built as a
+            collaborative platform for converting marine biotechnology opportunities into
+            scalable, high-value technologies.
+          </p>
+        </section>
+
+        <blockquote className="border-l-2 border-cyanx pl-6 text-2xl leading-10 text-slate-200">
+          “I don&apos;t build products first. I build systems that repeatedly create successful products.”
+        </blockquote>
+      </div>
+    </ArticleShell>
+  );
 }

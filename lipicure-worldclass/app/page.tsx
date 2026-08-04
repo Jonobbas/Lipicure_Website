@@ -58,21 +58,31 @@ export default function HomePage(){
       <div className="section-shell"><div className="section-kicker">Marine Bioprocess Intelligence</div><h2 className="section-title">Digital Intelligence for Every Stage of Process Development</h2><div className="mt-12 grid gap-6 lg:grid-cols-2"><SystemCard title="Opportunity Intelligence System" subtitle="Used before R&D begins" items={['Market intelligence and customer-needs analysis','Academic research and patent landscape scanning','Industrial value-stream mapping across key process nodes','Regulatory intelligence — FSSAI, FDA, EFSA and EMA pathways','Opportunity scoring using weighted commercial criteria','Portfolio balance and R&D prioritisation','Output: Technology Development Specification (TDS)']}/><SystemCard title="Process Development System" subtitle="Used after technology selection" items={['Mathematical process simulation and modelling','Experimental design and statistical analysis (DOE)','Critical process parameter mapping','Digital process model development','Process optimisation and design-space definition','Technology readiness level progression','Technology Package preparation for licensing']}/></div><div className="mt-8 rounded-2xl border border-cyan-300/15 bg-cyan-300/5 p-6 text-sm leading-7 text-slate-300">PEARL-X currently supports digital-first hypothesis generation, design-space exploration and process-development decision support. Simulation outputs remain predictions until calibrated and experimentally validated. This distinction is central to LipiCure&apos;s scientific governance.</div><a href="/pearl-x" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-cyanx px-5 py-4 font-semibold text-ocean-950">Explore PEARL-X <ArrowRight size={18}/></a></div>
     </section>
 
-    <section className="section-pad bg-[#04111e]">
-      <div className="section-shell">
-        <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-          <motion.div {...fade}>
-            <div className="section-kicker">Why LipiCure Exists</div>
-            <h2 className="section-title">A founder’s journey from industrial systems to marine biotechnology</h2>
-            <p className="section-copy">Nearly two decades in heavy engineering, manufacturing quality and complex project environments built a belief that breakthroughs become valuable only when they can be translated into repeatable systems. Lean, the Toyota Production System, Lean Startup and Agile sharpened that belief. Later exposure to Kanniyakumari’s marine economy, followed by conversations with industry people, scientists and incubators, revealed a large gap between India’s marine-resource strength and its high-value biotechnology output.</p>
-            <div className="mt-7 flex flex-wrap gap-4"><a href="/founder-story" className="inline-flex items-center gap-2 rounded-xl bg-cyanx px-5 py-4 font-semibold text-ocean-950">Read the founder story <ArrowRight size={18}/></a><a href="/founders-desk" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-4 font-semibold">From the Founder’s Desk</a></div>
-          </motion.div>
-          <div className="founder-path">
-            {['Heavy Engineering','Lean & TPS','Lean Startup','Kanniyakumari','Scientific Network','LipiCure'].map((item,index)=><div key={item} className="founder-path-item"><span>{String(index+1).padStart(2,'0')}</span><strong>{item}</strong></div>)}
+    <section className="section-pad">
+        <div className="section-shell">
+          <div className="max-w-3xl rounded-3xl border border-white/10 bg-white/[0.035] p-7 md:p-9">
+            <p className="section-kicker">Founder Story</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+              The Journey Behind LipiCure
+            </h2>
+
+            <p className="mt-5 text-base leading-8 text-slate-300 md:text-lg">
+              Engineering systems taught one enduring lesson: scientific breakthroughs
+              create real impact only when they become repeatable systems. That philosophy
+              evolved into LipiCure—a marine biotechnology venture where engineering
+              discipline, digital intelligence and marine science come together to unlock
+              higher-value innovations from ocean resources.
+            </p>
+
+            <a
+              href="/founder-story"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-cyanx px-5 py-3 font-semibold text-ocean-950"
+            >
+              Read the Founder Story <ArrowRight size={18}/>
+            </a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     <section className="section-pad bg-ocean-900">
       <div className="section-shell">
