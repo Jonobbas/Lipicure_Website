@@ -24,7 +24,13 @@ export default function HomePage(){
           <div className="mt-8 flex flex-wrap gap-4"><a href="#platform" className="inline-flex items-center gap-2 rounded-xl bg-cyanx px-5 py-4 font-semibold text-ocean-950">Explore Platform <ArrowRight size={18}/></a><a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-black/20 px-5 py-4 font-semibold">Partner With Us</a></div>
         </div>
       </div>
-      <div className="absolute inset-x-0 bottom-5 z-10"><div className="section-shell grid gap-3 sm:grid-cols-3"><Stat value="3rd Largest" label="pelagic fish producer"/><Stat value="$7B+" label="marine biotech market"/><Stat value="8–12%" label="projected CAGR to 2035"/></div></div>
+      <div className="absolute bottom-8 left-6 z-10 md:left-16 lg:left-24">
+        <div className="flex flex-wrap gap-x-6 gap-y-3">
+          <Stat value="3rd Largest" label="pelagic fish producer"/>
+          <Stat value="$7B+" label="marine biotech market"/>
+          <Stat value="8–12%" label="projected CAGR to 2035"/>
+        </div>
+      </div>
     </section>
 
     <section className="section-pad bg-ocean-900">
@@ -111,7 +117,18 @@ export default function HomePage(){
   </main>
 }
 
-function Stat({value,label}:{value:string,label:string}){return <div className="glass rounded-2xl px-5 py-4"><strong className="block text-xl text-cyanx">{value}</strong><span className="text-xs text-slate-300">{label}</span></div>}
+function Stat({value,label}:{value:string,label:string}){
+  return (
+    <div className="glass rounded-xl px-3 py-2 min-w-[130px]">
+      <strong className="block text-base font-semibold text-cyanx">
+        {value}
+      </strong>
+      <span className="block text-[11px] leading-tight text-slate-300">
+        {label}
+      </span>
+    </div>
+  );
+}
 function Metric({value,label}:{value:string,label:string}){return <div className="grid-card p-6"><strong className="block text-3xl text-cyanx">{value}</strong><span className="mt-3 block text-sm text-slate-400">{label}</span></div>}
 function Compare({title,items,tone}:{title:string,items:string[],tone:'red'|'teal'}){return <div className={`rounded-2xl border p-7 ${tone==='red'?'border-red-400/20 bg-red-400/5':'border-cyan-300/20 bg-cyan-300/5'}`}><h3 className={`text-2xl font-semibold ${tone==='red'?'text-red-300':'text-cyanx'}`}>{title}</h3><ul className="mt-6 space-y-4 text-slate-300">{items.map(i=><li key={i} className="flex gap-3"><span>{tone==='red'?'×':'✓'}</span><span>{i}</span></li>)}</ul></div>}
 function Positioning({title,text}:{title:string,text:string}){return <div className="rounded-2xl border border-cyan-300/15 bg-white/[.02] p-6"><h3 className="text-lg font-semibold text-cyanx">{title}</h3><p className="mt-3 text-sm leading-7 text-slate-400">{text}</p></div>}

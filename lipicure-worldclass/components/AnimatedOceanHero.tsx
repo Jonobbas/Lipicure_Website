@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import LivingBubbles from '@/components/ocean-v2/LivingBubbles';
+import MarineParticles from '@/components/ocean-v2/MarineParticles';
 
 /**
  * Performance-first ocean hero.
@@ -30,6 +31,17 @@ export default function AnimatedOceanHero() {
   return (
     <div ref={root} className="animated-ocean-hero" aria-hidden="true">
       <div className="ocean-image" />
+      <div className="ocean-atmosphere" />
+      <div className="light-rays">
+  {Array.from({ length: 6 }).map((_, i) => (
+    <span
+      key={i}
+      style={{ "--ray": i } as React.CSSProperties}
+    />
+  ))}
+</div>
+      <div className="water-caustics" />
+      <MarineParticles />
       <LivingBubbles />
       <div className="fish-school fish-school-one">
         {Array.from({ length: 9 }).map((_, i) => <span key={i} style={{ '--fish-i': i } as React.CSSProperties} />)}
@@ -39,7 +51,6 @@ export default function AnimatedOceanHero() {
       </div>
       <div className="jelly jelly-one"><i/><b/><em/></div>
       <div className="jelly jelly-two"><i/><b/><em/></div>
-      <div className="ocean-atmosphere" />
     </div>
   );
 }
