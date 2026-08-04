@@ -14,7 +14,7 @@ export default function HomePage(){
   return <main>
     <section className="relative min-h-screen overflow-hidden bg-ocean-950">
       <div className="absolute inset-0"><AnimatedOceanHero/></div>
-      <div className="hero-gradient absolute inset-0" />
+      {/* hero-gradient disabled: removed unwanted oval glow */}
       <Header/>
       <div className="section-shell relative z-10 flex min-h-screen items-center pt-24">
         <div className="max-w-3xl pb-28">

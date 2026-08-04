@@ -30,7 +30,7 @@ export default function AnimatedOceanHero() {
   return (
     <div ref={root} className="animated-ocean-hero" aria-hidden="true">
       <div className="ocean-image" />
-      <div className="ocean-atmosphere" />
+      {/* <div className="ocean-atmosphere" /> */}
       <div className="light-rays">
   {Array.from({ length: 6 }).map((_, i) => (
     <span
@@ -47,8 +47,6 @@ export default function AnimatedOceanHero() {
       <div className="fish-school fish-school-two">
         {Array.from({ length: 6 }).map((_, i) => <span key={i} style={{ '--fish-i': i } as React.CSSProperties} />)}
       </div>
-      <div className="jelly jelly-one"><i/><b/><em/></div>
-      <div className="jelly jelly-two"><i/><b/><em/></div>
     </div>
   );
 }
