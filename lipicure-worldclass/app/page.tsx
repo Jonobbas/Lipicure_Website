@@ -75,6 +75,154 @@ export default function HomePage(){
     </section>
 
 
+    <section className="section-pad bg-[#04111e] border-y border-white/5">
+      <div className="section-shell">
+        <motion.div {...fade}>
+          <div className="section-kicker">LipiCure Operating System</div>
+
+          <h2 className="section-title">
+            Design the Right Problem. Validate the Right Solution. Build Through Continuous Learning.
+          </h2>
+
+          <p className="section-copy">
+            LipiCure combines Design Thinking, Lean Startup and Agile into one
+            disciplined operating framework for reducing uncertainty and
+            translating marine biotechnology ideas into validated technologies.
+          </p>
+        </motion.div>
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <article className="grid-card p-7 md:p-8">
+            <div className="text-sm font-semibold tracking-[.18em] text-cyanx">01</div>
+            <h3 className="mt-5 text-3xl font-semibold">Design Thinking</h3>
+            <p className="mt-3 text-lg font-medium text-cyanx">
+              Discover the right problem.
+            </p>
+            <p className="mt-5 leading-8 text-slate-300">
+              Understand customer needs, scientific gaps, clinical relevance,
+              industry realities and stakeholder expectations before defining
+              the opportunity.
+            </p>
+          </article>
+
+          <article className="grid-card p-7 md:p-8">
+            <div className="text-sm font-semibold tracking-[.18em] text-cyanx">02</div>
+            <h3 className="mt-5 text-3xl font-semibold">Lean Startup</h3>
+            <p className="mt-3 text-lg font-medium text-cyanx">
+              Validate before scaling.
+            </p>
+            <p className="mt-5 leading-8 text-slate-300">
+              Treat assumptions as hypotheses and test them through evidence,
+              simulations, experiments and stakeholder feedback before committing
+              larger resources.
+            </p>
+          </article>
+
+          <article className="grid-card p-7 md:p-8">
+            <div className="text-sm font-semibold tracking-[.18em] text-cyanx">03</div>
+            <h3 className="mt-5 text-3xl font-semibold">Agile</h3>
+            <p className="mt-3 text-lg font-medium text-cyanx">
+              Build through continuous learning.
+            </p>
+            <p className="mt-5 leading-8 text-slate-300">
+              Execute in short, accountable cycles with cross-functional teams,
+              frequent reviews, rapid feedback and continuous improvement.
+            </p>
+          </article>
+        </div>
+
+        <div className="mt-10">
+          <a
+            href="/innovation-framework"
+            className="inline-flex items-center gap-2 rounded-xl bg-cyanx px-6 py-4 font-semibold text-ocean-950"
+          >
+            Explore the Full Framework <ArrowRight size={18}/>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section className="section-pad bg-ocean-900 border-y border-white/5">
+      <div className="section-shell">
+
+        <motion.div {...fade} className="text-center">
+          <div className="section-kicker">The Principles That Guide LipiCure</div>
+
+          <h2 className="section-title">
+            Vision • Mission • Values
+          </h2>
+
+          <p className="section-copy mx-auto max-w-4xl">
+            Every scientific programme, partnership and technology developed at
+            LipiCure is guided by a shared purpose, a disciplined mission and
+            enduring values.
+          </p>
+        </motion.div>
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+
+          <article className="grid-card p-8">
+            <div className="text-cyanx text-sm font-semibold tracking-[.2em]">
+              VISION
+            </div>
+
+            <h3 className="mt-5 text-3xl font-semibold">
+              Advance Marine Biotechnology
+            </h3>
+
+            <p className="mt-6 leading-8 text-slate-300">
+              To advance global marine biotechnology by building a collaborative
+              innovation ecosystem that transforms marine science into
+              technologies improving human health, industry and environmental
+              sustainability.
+            </p>
+          </article>
+
+          <article className="grid-card p-8">
+            <div className="text-cyanx text-sm font-semibold tracking-[.2em]">
+              MISSION
+            </div>
+
+            <h3 className="mt-5 text-3xl font-semibold">
+              From Discovery to Translation
+            </h3>
+
+            <p className="mt-6 leading-8 text-slate-300">
+              Discover, design, validate and translate high-value marine
+              biotechnology opportunities into scientifically credible,
+              commercially viable technologies through systems thinking,
+              multidisciplinary collaboration and digital intelligence.
+            </p>
+          </article>
+
+          <article className="grid-card p-8">
+            <div className="text-cyanx text-sm font-semibold tracking-[.2em]">
+              VALUES
+            </div>
+
+            <ul className="mt-6 space-y-3 text-slate-300 leading-7">
+              <li>• Scientific Integrity</li>
+              <li>• Engineering Excellence</li>
+              <li>• Collaborative Innovation</li>
+              <li>• Continuous Learning</li>
+              <li>• Shared Responsibility</li>
+              <li>• Sustainability</li>
+            </ul>
+          </article>
+
+        </div>
+
+        <blockquote className="mx-auto mt-14 max-w-5xl border-l-2 border-cyanx pl-6 text-left text-2xl leading-10 text-slate-200 italic">
+          "We believe the future of marine biotechnology will be built by a
+          collaborative ecosystem committed to scientific excellence,
+          responsible innovation and long-term impact."
+        </blockquote>
+
+      </div>
+    </section>
+
+
     <section className="section-pad bg-ocean-900">
       <div className="section-shell"><motion.div {...fade}><div className="section-kicker">The Opportunity</div><h2 className="section-title">India&apos;s Blue Bioeconomy Opportunity</h2><p className="section-copy">India has abundant marine biomass, scientific talent and a growing demand for sustainable health, nutrition and industrial ingredients. The opportunity is to translate this natural resource advantage into high-value, validated technologies rather than low-value commodity outputs.</p></motion.div>
       <div className="mt-14 grid gap-4 md:grid-cols-6">{[['Ocean',Waves],['Marine Biomass',Fish],['Bioactive Molecules',Dna],['Nutraceuticals',Pill],['Pharmaceuticals',FlaskConical],['Circular Economy',Recycle]].map(([t,I],i)=><div key={String(t)} className="grid-card p-5 text-center"><I className="mx-auto mb-4 text-cyanx"/><div className="text-sm font-medium">{t as string}</div>{i<5&&<div className="mt-4 text-cyanx">→</div>}</div>)}</div>
