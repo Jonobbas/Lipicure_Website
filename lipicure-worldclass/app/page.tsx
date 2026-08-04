@@ -19,8 +19,8 @@ export default function HomePage(){
       <div className="section-shell relative z-10 flex min-h-screen items-center pt-24">
         <div className="max-w-3xl pb-28">
           <div className="mb-5 inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/5 px-4 py-2 text-xs uppercase tracking-[.2em] text-cyanx">Marine Biotechnology · Deep-Tech · India</div>
-          <h1 className="text-5xl font-semibold leading-[.95] tracking-[-.05em] sm:text-7xl lg:text-8xl">Engineering the <span className="block text-cyanx">Blue Bioeconomy</span></h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">India&apos;s Marine Bioprocess Intelligence Platform — discovering, designing and translating high-value marine biotechnology opportunities into licensable technologies.</p>
+          <h1 className="text-5xl font-semibold leading-[.95] tracking-[-.05em] sm:text-7xl lg:text-8xl">Disrupting <span className="block text-cyanx">Marine Biotechnology</span></h1>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">Building a collaborative innovation ecosystem that transforms marine science into real-world technologies.</p>
           <div className="mt-8 flex flex-wrap gap-4"><a href="#platform" className="inline-flex items-center gap-2 rounded-xl bg-cyanx px-5 py-4 font-semibold text-ocean-950">Explore Platform <ArrowRight size={18}/></a><a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-black/20 px-5 py-4 font-semibold">Partner With Us</a></div>
         </div>
       </div>
@@ -32,6 +32,48 @@ export default function HomePage(){
         </div>
       </div>
     </section>
+
+    <section className="section-pad bg-[#03131f] border-y border-white/5">
+      <div className="section-shell">
+        <motion.div {...fade} className="mx-auto max-w-5xl text-center">
+
+          <div className="section-kicker">Build Together</div>
+
+          <h2 className="section-title">
+            Democratizing the Opportunity to Build Marine Biotechnology.
+          </h2>
+
+          <p className="mx-auto mt-8 max-w-4xl text-xl leading-9 text-slate-300">
+            LipiCure is bringing together scientists, engineers, clinicians,
+            entrepreneurs and industry professionals who believe that the future
+            of marine biotechnology will be built through collaboration—not in
+            isolation.
+          </p>
+
+          <p className="mx-auto mt-6 max-w-3xl leading-8 text-slate-400">
+            We value meaningful contribution, shared responsibility and long-term
+            commitment. Many early contributors continue their existing
+            professional careers while helping build LipiCure's vision, platform
+            and ecosystem.
+          </p>
+
+          <blockquote className="mx-auto mt-10 max-w-4xl border-l-2 border-cyanx pl-6 text-left text-2xl leading-10 text-slate-200 italic">
+            "If you believe in our vision, let's build the future of marine biotechnology together."
+          </blockquote>
+
+          <div className="mt-10">
+            <a
+              href="/build-together"
+              className="inline-flex items-center gap-2 rounded-xl bg-cyanx px-6 py-4 font-semibold text-ocean-950 transition hover:scale-105"
+            >
+              Build Together <ArrowRight size={18}/>
+            </a>
+          </div>
+
+        </motion.div>
+      </div>
+    </section>
+
 
     <section className="section-pad bg-ocean-900">
       <div className="section-shell"><motion.div {...fade}><div className="section-kicker">The Opportunity</div><h2 className="section-title">India&apos;s Blue Bioeconomy Opportunity</h2><p className="section-copy">India has abundant marine biomass, scientific talent and a growing demand for sustainable health, nutrition and industrial ingredients. The opportunity is to translate this natural resource advantage into high-value, validated technologies rather than low-value commodity outputs.</p></motion.div>

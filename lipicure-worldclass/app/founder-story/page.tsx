@@ -3,68 +3,92 @@ import ArticleShell from '@/components/content/ArticleShell';
 export default function FounderStoryPage() {
   return (
     <ArticleShell
-      eyebrow="Origin Story"
-      title="The Journey Behind LipiCure"
-      intro="LipiCure began as a question: how can disciplined engineering systems help translate scientific ideas into repeatable, commercially meaningful outcomes?"
+      eyebrow="Founder Story"
+      title="Growing a Vision Through Collaboration"
+      intro="LipiCure was never intended to become the work of a single individual. It has grown through curiosity, collaboration and the collective wisdom of people from many different disciplines."
     >
-      <div className="space-y-10">
-        <section>
-          <h2 className="text-3xl font-semibold">Engineering Before Entrepreneurship</h2>
-          <p className="mt-4 leading-8 text-slate-300">
-            Nearly two decades in heavy engineering, manufacturing quality and complex
-            project environments shaped a strong belief: scientific breakthroughs create
-            real impact only when they become repeatable systems.
-          </p>
-        </section>
 
-        <section>
-          <h2 className="text-3xl font-semibold">The Ocean Changed the Question</h2>
-          <p className="mt-4 leading-8 text-slate-300">
-            Exposure to Kanniyakumari&apos;s marine economy, combined with industry analysis
-            and academic research, revealed a significant gap between India&apos;s strength
-            in marine resources and its output of high-value biotechnology.
-          </p>
-        </section>
+      <section>
+        <h2>The First Question</h2>
 
-        <section>
-          <h2 className="text-3xl font-semibold">Conversations That Became a Venture</h2>
-          <p className="mt-4 leading-8 text-slate-300">
-            The idea evolved through repeated discussions at home with Sowjanniya. Her own
-            entrepreneurial journey—from building a café venture to developing a precision
-            machining unit now under operation—brought a practical business perspective to
-            the engineering vision.
-          </p>
-          <p className="mt-4 leading-8 text-slate-300">
-            Those conversations helped transform a technical possibility into an
-            entrepreneurial pathway led by Sowjanniya, while the engineering and systems
-            vision continued to draw from years of industrial experience.
-          </p>
-        </section>
+        <p>
+          The journey began with a simple question:
+        </p>
 
-        <section>
-          <h2 className="text-3xl font-semibold">Building the Ecosystem</h2>
-          <p className="mt-4 leading-8 text-slate-300">
-            LipiCure was shaped through discussions with industry professionals, academic
-            researchers, marine scientists, incubators, mentors and potential collaborators.
-            Each interaction refined the problem, tested the assumptions and strengthened
-            the venture model.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-3xl font-semibold">The Birth of LipiCure</h2>
-          <p className="mt-4 leading-8 text-slate-300">
-            LipiCure represents the convergence of engineering discipline, entrepreneurial
-            leadership, digital intelligence and marine science. It is being built as a
-            collaborative platform for converting marine biotechnology opportunities into
-            scalable, high-value technologies.
-          </p>
-        </section>
-
-        <blockquote className="border-l-2 border-cyanx pl-6 text-2xl leading-10 text-slate-200">
-          “I don&apos;t build products first. I build systems that repeatedly create successful products.”
+        <blockquote className="mt-6 border-l-2 border-cyanx pl-6 text-2xl leading-10 text-slate-200">
+          "Can engineering discipline be combined with marine science to build a
+          better way of developing biotechnology?"
         </blockquote>
-      </div>
+
+        <p className="mt-8">
+          Nearly two decades in heavy engineering, manufacturing quality and
+          complex industrial projects developed a systems-first way of thinking.
+          Lean, the Toyota Production System, Lean Startup and Agile reinforced
+          one belief: meaningful breakthroughs create lasting value only when
+          they can be translated into repeatable systems.
+        </p>
+      </section>
+
+      <section>
+        <h2>From an Idea to an Ecosystem</h2>
+
+        <p>
+          Exposure to the marine economy of Kanniyakumari revealed an opportunity
+          far larger than a single product. Conversations with industry
+          professionals uncovered practical challenges. Discussions with
+          scientists opened new research directions. Doctors connected technology
+          with real healthcare needs. Professors, incubators and innovation
+          leaders contributed fresh perspectives, while entrepreneurs and
+          ecosystem partners helped shape a broader vision.
+        </p>
+
+        <p>
+          What was most surprising was how quickly the network expanded. Within
+          just a few months, conversations with researchers, clinicians,
+          professors, startup mentors and industrial experts transformed one idea
+          into a growing collaborative movement.
+        </p>
+      </section>
+
+      <section>
+        <h2>Growing Together</h2>
+
+        <p>
+          Sowjanniya played an important role in transforming the vision into an
+          entrepreneurial journey by helping build early ventures, operational
+          capability and relationships that continue to strengthen LipiCure.
+          Together with mentors, researchers, industry experts, doctors and
+          collaborators, the idea continued to evolve.
+        </p>
+
+        <p>
+          Every meaningful conversation added a new perspective. Every
+          collaborator contributed new energy. The vision gradually expanded from
+          a single concept into a multidisciplinary platform where science,
+          engineering, medicine and entrepreneurship work together.
+        </p>
+      </section>
+
+      <section>
+        <h2>The Journey Ahead</h2>
+
+        <p>
+          Today, LipiCure is no longer simply a founder's story.
+        </p>
+
+        <p>
+          It is the story of a growing community of scientists, clinicians,
+          engineers, entrepreneurs, industry leaders, mentors and institutions
+          working together to advance marine biotechnology through responsible
+          innovation and collaborative problem solving.
+        </p>
+
+        <blockquote className="mt-10 border-l-2 border-cyanx pl-6 text-2xl leading-10 text-slate-200">
+          "Every conversation strengthened the roots. Every collaborator added a
+          new branch. Together, they continue to grow the LipiCure tree."
+        </blockquote>
+      </section>
+
     </ArticleShell>
   );
 }
