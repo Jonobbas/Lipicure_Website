@@ -5,15 +5,14 @@ import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import { ArrowRight, Atom, BookOpen, BriefcaseBusiness, CircleDollarSign, Dna, Factory, Fish, FlaskConical, Globe2, GraduationCap, Leaf, Linkedin, Microscope, Network, Newspaper, Pill, Recycle, ShieldCheck, Sparkles, Waves } from 'lucide-react';
 
-import AnimatedOceanHero from '@/components/AnimatedOceanHero';
-import Newsletter from '@/components/Newsletter';
+import StaticOceanHero from '@/components/StaticOceanHero';
 
 const fade = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: '-80px' }, transition: { duration: .7 } };
 
 export default function HomePage(){
   return <main>
     <section className="relative min-h-screen overflow-hidden bg-ocean-950">
-      <div className="absolute inset-0"><AnimatedOceanHero/></div>
+      <div className="absolute inset-0"><StaticOceanHero/></div>
       <div className="hero-gradient absolute inset-0" />
       <Header/>
       <div className="section-shell relative z-10 flex min-h-screen items-center pt-24">
@@ -49,7 +48,7 @@ export default function HomePage(){
     </section>
 
     <section className="section-pad bg-ocean-900">
-      <div className="section-shell"><div className="section-kicker">Marine Bioprocess Intelligence</div><h2 className="section-title">Digital Intelligence for Every Stage of Process Development</h2><div className="mt-12 grid gap-6 lg:grid-cols-2"><SystemCard title="Opportunity Intelligence System" subtitle="Used before R&D begins" items={['Market intelligence and customer-needs analysis','Academic research and patent landscape scanning','Industrial value-stream mapping across key process nodes','Regulatory intelligence — FSSAI, FDA, EFSA and EMA pathways','Opportunity scoring using weighted commercial criteria','Portfolio balance and R&D prioritisation','Output: Technology Development Specification (TDS)']}/><SystemCard title="Process Development System" subtitle="Used after technology selection" items={['Mathematical process simulation and modelling','Experimental design and statistical analysis (DOE)','Critical process parameter mapping','Digital process model development','Process optimisation and design-space definition','Technology readiness level progression','Technology Package preparation for licensing']}/></div><div className="mt-8 rounded-2xl border border-cyan-300/15 bg-cyan-300/5 p-6 text-sm leading-7 text-slate-300">PEARL-X currently supports digital-first hypothesis generation, design-space exploration and process-development decision support. Simulation outputs remain predictions until calibrated and experimentally validated. This distinction is central to LipiCure&apos;s scientific governance.</div><a href="/pearl-x" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-cyanx px-5 py-4 font-semibold text-ocean-950">Explore PEARL-X <ArrowRight size={18}/></a></div>
+      <div className="section-shell"><div className="section-kicker">Marine Bioprocess Intelligence</div><h2 className="section-title">Digital Intelligence for Every Stage of Process Development</h2><div className="mt-12 grid gap-6 lg:grid-cols-2"><SystemCard title="Opportunity Intelligence System" subtitle="Used before R&D begins" items={['Market intelligence and customer-needs analysis','Academic research and patent landscape scanning','Industrial value-stream mapping across key process nodes','Regulatory intelligence — FSSAI, FDA, EFSA and EMA pathways','Opportunity scoring using weighted commercial criteria','Portfolio balance and R&D prioritisation','Output: Technology Development Specification (TDS)']}/><SystemCard title="Process Development System" subtitle="Used after technology selection" items={['Mathematical process simulation and modelling','Experimental design and statistical analysis (DOE)','Critical process parameter mapping','Digital process model development','Process optimisation and design-space definition','Technology readiness level progression','Technology Package preparation for licensing']}/></div><div className="mt-8 rounded-2xl border border-cyan-300/15 bg-cyan-300/5 p-6 text-sm leading-7 text-slate-300">PEARL-X currently supports digital-first hypothesis generation, design-space exploration and process-development decision support. Simulation outputs remain predictions until calibrated and experimentally validated. This distinction is central to LipiCure&apos;s scientific governance.</div></div>
     </section>
 
     <section className="section-pad bg-[#04111e]">
@@ -84,7 +83,7 @@ export default function HomePage(){
 
     <section className="section-pad bg-[#03101b]">
       <div className="section-shell">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><div><div className="section-kicker">Knowledge Hub</div><h2 className="section-title">A living window into the market, research and our progress</h2></div><a href="/knowledge" className="inline-flex items-center gap-2 text-cyanx">Explore the Knowledge Hub <ArrowRight size={18}/></a></div>
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><div><div className="section-kicker">Knowledge Hub</div><h2 className="section-title">A living window into the market, research and our progress</h2></div><a href="/insights" className="inline-flex items-center gap-2 text-cyanx">Explore all insights <ArrowRight size={18}/></a></div>
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           <KnowledgeCard icon={<BookOpen/>} label="Insights" title="Blue bioeconomy and marine biotechnology" text="Fortnightly research-informed articles on markets, processing technologies, regulation and commercialisation." href="/insights"/>
           <KnowledgeCard icon={<Newspaper/>} label="Monthly" title="From the Founder’s Desk" text="What we are learning, building, reading and seeking as LipiCure progresses." href="/founders-desk"/>
@@ -103,8 +102,6 @@ export default function HomePage(){
         <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-3 rounded-xl border border-cyan-300/30 bg-cyan-300/5 px-6 py-4 font-semibold text-cyanx"><Linkedin size={20}/> Visit LipiCure on LinkedIn</a>
       </div>
     </section>
-
-    <section className="section-pad bg-ocean-900"><Newsletter/></section>
 
     <section className="section-pad bg-gradient-to-br from-ocean-800 to-ocean-950"><div className="section-shell text-center"><div className="section-kicker">The next chapter</div><h2 className="section-title">Engineering the Blue Bioeconomy — Together</h2><p className="section-copy mx-auto">We are building the next generation of marine biotechnology products. Omega-3 is our first demonstration project.</p><div className="mt-8 flex flex-wrap justify-center gap-4"><a href="/contact" className="rounded-xl bg-cyanx px-6 py-4 font-semibold text-ocean-950">Partner With Us</a><a href="/technology" className="rounded-xl border border-white/20 px-6 py-4 font-semibold">View Our Technology</a></div></div></section>
     <Footer/>

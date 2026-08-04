@@ -1,6 +1,6 @@
 {
-  "name": "lipicure-digital-platform",
-  "version": "0.4.0",
+  "name": "lipicure-digital-hub-phase1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
