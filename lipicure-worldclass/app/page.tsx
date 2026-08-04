@@ -1,19 +1,19 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { ArrowRight, Atom, CircleDollarSign, Dna, Factory, Fish, FlaskConical, Globe2, Leaf, Microscope, Network, Pill, Recycle, ShieldCheck, Waves } from 'lucide-react';
+import { ArrowRight, Atom, BookOpen, BriefcaseBusiness, CircleDollarSign, Dna, Factory, Fish, FlaskConical, Globe2, GraduationCap, Leaf, Linkedin, Microscope, Network, Newspaper, Pill, Recycle, ShieldCheck, Sparkles, Waves } from 'lucide-react';
 
-const OceanScene = dynamic(() => import('@/components/OceanScene'), { ssr: false });
+import StaticOceanHero from '@/components/StaticOceanHero';
+import Newsletter from '@/components/Newsletter';
 
 const fade = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: '-80px' }, transition: { duration: .7 } };
 
 export default function HomePage(){
   return <main>
     <section className="relative min-h-screen overflow-hidden bg-ocean-950">
-      <div className="absolute inset-0"><OceanScene/></div>
+      <div className="absolute inset-0"><StaticOceanHero/></div>
       <div className="hero-gradient absolute inset-0" />
       <Header/>
       <div className="section-shell relative z-10 flex min-h-screen items-center pt-24">
@@ -52,9 +52,59 @@ export default function HomePage(){
       <div className="section-shell"><div className="section-kicker">Marine Bioprocess Intelligence</div><h2 className="section-title">Digital Intelligence for Every Stage of Process Development</h2><div className="mt-12 grid gap-6 lg:grid-cols-2"><SystemCard title="Opportunity Intelligence System" subtitle="Used before R&D begins" items={['Market intelligence and customer-needs analysis','Academic research and patent landscape scanning','Industrial value-stream mapping across key process nodes','Regulatory intelligence — FSSAI, FDA, EFSA and EMA pathways','Opportunity scoring using weighted commercial criteria','Portfolio balance and R&D prioritisation','Output: Technology Development Specification (TDS)']}/><SystemCard title="Process Development System" subtitle="Used after technology selection" items={['Mathematical process simulation and modelling','Experimental design and statistical analysis (DOE)','Critical process parameter mapping','Digital process model development','Process optimisation and design-space definition','Technology readiness level progression','Technology Package preparation for licensing']}/></div><div className="mt-8 rounded-2xl border border-cyan-300/15 bg-cyan-300/5 p-6 text-sm leading-7 text-slate-300">PEARL-X currently supports digital-first hypothesis generation, design-space exploration and process-development decision support. Simulation outputs remain predictions until calibrated and experimentally validated. This distinction is central to LipiCure&apos;s scientific governance.</div></div>
     </section>
 
+    <section className="section-pad bg-[#04111e]">
+      <div className="section-shell">
+        <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+          <motion.div {...fade}>
+            <div className="section-kicker">Why LipiCure Exists</div>
+            <h2 className="section-title">A founder’s journey from industrial systems to marine biotechnology</h2>
+            <p className="section-copy">Nearly two decades in heavy engineering, manufacturing quality and complex project environments built a belief that breakthroughs become valuable only when they can be translated into repeatable systems. Lean, the Toyota Production System, Lean Startup and Agile sharpened that belief. Later exposure to Kanniyakumari’s marine economy, followed by conversations with industry people, scientists and incubators, revealed a large gap between India’s marine-resource strength and its high-value biotechnology output.</p>
+            <div className="mt-7 flex flex-wrap gap-4"><a href="/founder-story" className="inline-flex items-center gap-2 rounded-xl bg-cyanx px-5 py-4 font-semibold text-ocean-950">Read the founder story <ArrowRight size={18}/></a><a href="/founders-desk" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-4 font-semibold">From the Founder’s Desk</a></div>
+          </motion.div>
+          <div className="founder-path">
+            {['Heavy Engineering','Lean & TPS','Lean Startup','Kanniyakumari','Scientific Network','LipiCure'].map((item,index)=><div key={item} className="founder-path-item"><span>{String(index+1).padStart(2,'0')}</span><strong>{item}</strong></div>)}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="section-pad bg-ocean-900">
+      <div className="section-shell">
+        <div className="section-kicker">Open Innovation</div><h2 className="section-title">Build the platform with us</h2>
+        <p className="section-copy">LipiCure is in active discussion with PhD researchers, professors, industry specialists, incubator mentors and prospective scientific collaborators. We invite people who believe in the vision to contribute through clearly governed, fair and long-term collaboration.</p>
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <Audience icon={<GraduationCap/>} title="Academic Partners" text="Connect research capability with validated industrial problems, commercial pathways and technology translation."/>
+          <Audience icon={<Microscope/>} title="PhD Researchers" text="Contribute domain expertise through defined projects, publications, evidence generation and potential venture pathways."/>
+          <Audience icon={<BriefcaseBusiness/>} title="Industry Experts" text="Bring process pain points, market requirements and scale-up knowledge into technology-development sprints."/>
+          <Audience icon={<Sparkles/>} title="Mentors" text="Strengthen scientific governance, grants, regulatory strategy, partnerships and venture execution."/>
+        </div>
+        <div className="mt-8"><a href="/collaboration" className="inline-flex items-center gap-2 text-cyanx">Read our collaboration principles <ArrowRight size={18}/></a></div>
+      </div>
+    </section>
+
+    <section className="section-pad bg-[#03101b]">
+      <div className="section-shell">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><div><div className="section-kicker">Knowledge Hub</div><h2 className="section-title">A living window into the market, research and our progress</h2></div><a href="/knowledge" className="inline-flex items-center gap-2 text-cyanx">Explore the Knowledge Hub <ArrowRight size={18}/></a></div>
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <KnowledgeCard icon={<BookOpen/>} label="Insights" title="Blue bioeconomy and marine biotechnology" text="Fortnightly research-informed articles on markets, processing technologies, regulation and commercialisation." href="/insights"/>
+          <KnowledgeCard icon={<Newspaper/>} label="Monthly" title="From the Founder’s Desk" text="What we are learning, building, reading and seeking as LipiCure progresses." href="/founders-desk"/>
+          <KnowledgeCard icon={<Network/>} label="Progress" title="News and venture updates" text="A transparent record of collaborations, research milestones, grants, events and company-building progress." href="/news"/>
+        </div>
+      </div>
+    </section>
+
     <section className="section-pad bg-[#03101b]">
       <div className="section-shell"><div className="section-kicker">Collaboration</div><h2 className="section-title">Join the Platform</h2><div className="mt-12 grid gap-5 lg:grid-cols-3"><Audience icon={<Microscope/>} title="Scientists & Researchers" text="Bring deep laboratory expertise and gain access to validated industrial problems, venture pathways and commercialisation support."/><Audience icon={<Factory/>} title="Industry Partners" text="Bring difficult marine-processing challenges and collaborate on technology packages built for industrial adoption and licensing."/><Audience icon={<CircleDollarSign/>} title="Investors" text="Participate in a platform addressing the conversion of abundant marine biomass into higher-value technologies and products."/></div></div>
     </section>
+
+    <section className="section-pad bg-ocean-900">
+      <div className="section-shell grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div><div className="section-kicker">Follow the Journey</div><h2 className="section-title">Research, industry learning and collaboration updates</h2><p className="section-copy">Follow LipiCure’s LinkedIn page for scientific discussions, market observations, platform-development progress and invitations to collaborate.</p></div>
+        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-3 rounded-xl border border-cyan-300/30 bg-cyan-300/5 px-6 py-4 font-semibold text-cyanx"><Linkedin size={20}/> Visit LipiCure on LinkedIn</a>
+      </div>
+    </section>
+
+    <section className="section-pad bg-ocean-900"><Newsletter/></section>
 
     <section className="section-pad bg-gradient-to-br from-ocean-800 to-ocean-950"><div className="section-shell text-center"><div className="section-kicker">The next chapter</div><h2 className="section-title">Engineering the Blue Bioeconomy — Together</h2><p className="section-copy mx-auto">We are building the next generation of marine biotechnology products. Omega-3 is our first demonstration project.</p><div className="mt-8 flex flex-wrap justify-center gap-4"><a href="/contact" className="rounded-xl bg-cyanx px-6 py-4 font-semibold text-ocean-950">Partner With Us</a><a href="/technology" className="rounded-xl border border-white/20 px-6 py-4 font-semibold">View Our Technology</a></div></div></section>
     <Footer/>
@@ -67,3 +117,5 @@ function Compare({title,items,tone}:{title:string,items:string[],tone:'red'|'tea
 function Positioning({title,text}:{title:string,text:string}){return <div className="rounded-2xl border border-cyan-300/15 bg-white/[.02] p-6"><h3 className="text-lg font-semibold text-cyanx">{title}</h3><p className="mt-3 text-sm leading-7 text-slate-400">{text}</p></div>}
 function SystemCard({title,subtitle,items}:{title:string,subtitle:string,items:string[]}){return <div className="grid-card p-7"><div className="text-xs uppercase tracking-[.18em] text-cyanx">{subtitle}</div><h3 className="mt-3 text-2xl font-semibold">{title}</h3><ul className="mt-6 space-y-3 text-sm leading-6 text-slate-300">{items.map(i=><li key={i} className="flex gap-3"><span className="text-cyanx">•</span>{i}</li>)}</ul></div>}
 function Audience({icon,title,text}:{icon:React.ReactNode,title:string,text:string}){return <div className="grid-card p-7"><div className="text-cyanx">{icon}</div><h3 className="mt-6 text-2xl font-semibold">{title}</h3><p className="mt-4 leading-7 text-slate-400">{text}</p></div>}
+
+function KnowledgeCard({icon,label,title,text,href}:{icon:React.ReactNode,label:string,title:string,text:string,href:string}){return <a href={href} className="knowledge-card grid-card p-7"><div className="flex items-center justify-between"><div className="text-cyanx">{icon}</div><span className="text-xs uppercase tracking-[.16em] text-slate-500">{label}</span></div><h3 className="mt-8 text-2xl font-semibold">{title}</h3><p className="mt-4 leading-7 text-slate-400">{text}</p><span className="mt-6 inline-flex items-center gap-2 text-sm text-cyanx">Open section <ArrowRight size={16}/></span></a>}

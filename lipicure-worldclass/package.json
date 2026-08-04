@@ -1,6 +1,6 @@
 {
-  "name": "lipicure-worldclass",
-  "version": "1.0.0",
+  "name": "lipicure-digital-hub-phase3",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -12,7 +12,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   const links = [
-    ['Technology','/technology'], ['Platform','/marine-bioprocess-intelligence'], ['Research','/research'], ['Team','/team'], ['About','/about']
+    ['Technology','/technology'], ['Platform','/marine-bioprocess-intelligence'], ['Research','/research'], ['Knowledge Hub','/knowledge'], ['Collaboration','/collaboration'], ['Founder','/founder-story'], ['About','/about']
   ];
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition ${solid ? 'bg-ocean-950/95 border-b border-cyan-300/10 backdrop-blur' : 'bg-transparent'}`}>

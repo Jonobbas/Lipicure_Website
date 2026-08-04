@@ -1,52 +1,47 @@
-# LipiCure World-Class Website
+# LipiCure Digital Hub — Phase 3 (v0.2.0)
 
-Next.js 14 + TypeScript + Tailwind + Framer Motion + React Three Fiber.
+Progressive Next.js 14 codebase for LipiCure's pre-seed digital hub.
 
-## Features
-
-- Procedural 3D deep-ocean hero scene
-- 35 animated sardines
-- 3 bioluminescent jellyfish
-- Seafloor, rocks, kelp, robotic arm, bioreactor and holograms
-- Bloom post-processing and mouse parallax
-- Eight complete homepage sections
-- Responsive global header and footer
-- Six secondary routes ready for final content
-
-## Local development
+## Run in GitHub Codespaces
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open the forwarded port 3000.
 
-## Production build
+## Production check
 
 ```bash
 npm run build
 npm start
 ```
 
-## Deploy on Vercel
+## Phase 3 additions
 
-1. Create a private GitHub repository.
-2. Upload the contents of this folder.
-3. Import the repository into Vercel.
-4. Framework preset: Next.js.
-5. Build command: `npm run build`.
+- Knowledge Hub
+- Dynamic Insights, Founder's Desk and News publishing routes
+- Founder and platform philosophy page
+- Newsletter-ready UI
+- SEO sitemap and robots configuration
+- Reusable content architecture
 
-## Important launch checks
+## Add a new article
 
-- Validate all market figures and public claims.
-- Replace placeholder email and LinkedIn URL.
-- Add privacy policy, terms and cookie notice where required.
-- Add final logo, favicon and company registration details.
-- Test WebGL performance on mobile and low-powered devices.
-- Consider a static hero fallback for devices without WebGL.
-- Treat PEARL-X simulation results as predictions until experimental validation.
+Add a `ContentItem` to `lib/content.ts`. The archive card, article page and sitemap entry are produced automatically.
 
-## Repository hygiene
+## Before public launch
 
-Do not commit `.env`, passwords, unpublished research, patent drafts, founder documents, investor-confidential material or personal records.
+- Replace placeholder LinkedIn URL
+- Confirm contact email
+- Validate all public market statistics
+- Add privacy policy and terms
+- Connect newsletter form to a real email provider
+- Replace `https://lipicure.com` in metadata if the final domain differs
+
+See `docs/PHASE2.md` for architecture notes.
+
+
+## Phase 3 publishing
+Content is managed in `lib/content.ts`. RSS is available at `/feed.xml`.
