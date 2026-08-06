@@ -1,121 +1,145 @@
-'use client';
+"use client";
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { motion } from 'framer-motion';
-import { ArrowRight, Atom, BookOpen, BriefcaseBusiness, CircleDollarSign, Dna, Factory, Fish, FlaskConical, Globe2, GraduationCap, Leaf, Linkedin, Microscope, Network, Newspaper, Pill, Recycle, ShieldCheck, Sparkles, Waves } from 'lucide-react';
+// Immersive main-page checkpoint; the previous homepage remains recoverable in Git.
 
-import StaticOceanHero from '@/components/StaticOceanHero';
-import Newsletter from '@/components/Newsletter';
+import { useState } from "react";
+import DeepOceanHero from "@/components/deep-ocean-hero";
 
-const fade = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: '-80px' }, transition: { duration: .7 } };
+const oceanBubbles = [
+  [5, 3, 18, -2], [11, 5, 24, -17], [18, 2, 14, -8], [24, 4, 22, -25],
+  [31, 2, 16, -12], [38, 5, 28, -4], [46, 3, 19, -21], [53, 4, 25, -10],
+  [61, 2, 17, -28], [68, 5, 27, -15], [74, 3, 20, -6], [81, 4, 23, -24],
+  [87, 2, 15, -13], [93, 5, 26, -31], [15, 2, 13, -34], [57, 2, 15, -37],
+];
 
-export default function HomePage(){
-  return <main>
-    <section className="relative min-h-screen overflow-hidden bg-ocean-950">
-      <div className="absolute inset-0"><StaticOceanHero/></div>
-      <div className="hero-gradient absolute inset-0" />
-      <Header/>
-      <div className="section-shell relative z-10 flex min-h-screen items-center pt-24">
-        <div className="max-w-3xl pb-28">
-          <div className="mb-5 inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/5 px-4 py-2 text-xs uppercase tracking-[.2em] text-cyanx">Marine Biotechnology · Deep-Tech · India</div>
-          <h1 className="text-5xl font-semibold leading-[.95] tracking-[-.05em] sm:text-7xl lg:text-8xl">Engineering the <span className="block text-cyanx">Blue Bioeconomy</span></h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">India&apos;s Marine Bioprocess Intelligence Platform — discovering, designing and translating high-value marine biotechnology opportunities into licensable technologies.</p>
-          <div className="mt-8 flex flex-wrap gap-4"><a href="#platform" className="inline-flex items-center gap-2 rounded-xl bg-cyanx px-5 py-4 font-semibold text-ocean-950">Explore Platform <ArrowRight size={18}/></a><a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-black/20 px-5 py-4 font-semibold">Partner With Us</a></div>
-        </div>
+const bioProducts = [
+  ["01", "Omega-3 lipids", "EPA and DHA pathways for nutraceutical and pharmaceutical applications."],
+  ["02", "Marine proteins", "Hydrolysates and high-purity concentrates from pelagic biomass."],
+  ["03", "Marine collagen", "Type I and II collagen for health, biomaterials and cosmetics."],
+  ["04", "Bioactive peptides", "Functional fractions with potential therapeutic value."],
+  ["05", "Chitin & chitosan", "Marine polysaccharides for purification, pharma and agriculture."],
+  ["06", "Marine minerals", "Calcium, phosphorus and trace bioelements recovered by design."],
+  ["07", "Marine pigments", "Astaxanthin, carotenoids and specialty colourants."],
+  ["08", "Specialty actives", "Enzymes, antimicrobials and future marine-derived compounds."],
+];
+
+const pearlStages = [
+  { id: "01", title: "Opportunity intelligence", detail: "Market needs, patent landscapes and regulatory pathways define what is worth building.", output: "Technology Development Specification" },
+  { id: "02", title: "Digital process model", detail: "Mass balance, quality kinetics and process constraints become a testable simulation architecture.", output: "Executable process hypothesis" },
+  { id: "03", title: "Design-space exploration", detail: "DOE and simulation narrow thousands of combinations into experimentally meaningful windows.", output: "Candidate operating envelope" },
+  { id: "04", title: "Experimental validation", detail: "Laboratory evidence calibrates the model and separates predictions from validated performance.", output: "Evidence-backed design space" },
+  { id: "05", title: "Technology translation", detail: "Scale-up logic, IP, economics and partner readiness converge into a licensable package.", output: "Technology package" },
+];
+
+export default function Home() {
+  const [activeStage, setActiveStage] = useState(0);
+  const stage = pearlStages[activeStage];
+
+  return (
+    <main>
+      <div className="ocean-bubble-current" aria-hidden="true">
+        {oceanBubbles.map(([left, size, duration, delay], i) => (
+          <i key={i} style={{ "--bubble-left": `${left}%`, "--bubble-size": `${size}px`, "--bubble-duration": `${duration}s`, "--bubble-delay": `${delay}s` } as React.CSSProperties} />
+        ))}
       </div>
-      <div className="absolute inset-x-0 bottom-5 z-10"><div className="section-shell grid gap-3 sm:grid-cols-3"><Stat value="3rd Largest" label="pelagic fish producer"/><Stat value="$7B+" label="marine biotech market"/><Stat value="8–12%" label="projected CAGR to 2035"/></div></div>
-    </section>
+      <DeepOceanHero />
 
-    <section className="section-pad bg-ocean-900">
-      <div className="section-shell"><motion.div {...fade}><div className="section-kicker">The Opportunity</div><h2 className="section-title">India&apos;s Blue Bioeconomy Opportunity</h2><p className="section-copy">India has abundant marine biomass, scientific talent and a growing demand for sustainable health, nutrition and industrial ingredients. The opportunity is to translate this natural resource advantage into high-value, validated technologies rather than low-value commodity outputs.</p></motion.div>
-      <div className="mt-14 grid gap-4 md:grid-cols-6">{[['Ocean',Waves],['Marine Biomass',Fish],['Bioactive Molecules',Dna],['Nutraceuticals',Pill],['Pharmaceuticals',FlaskConical],['Circular Economy',Recycle]].map(([t,I],i)=><div key={String(t)} className="grid-card p-5 text-center"><I className="mx-auto mb-4 text-cyanx"/><div className="text-sm font-medium">{t as string}</div>{i<5&&<div className="mt-4 text-cyanx">→</div>}</div>)}</div>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"><Metric value="8,118 km" label="India's coastline"/><Metric value="~4.2M MT" label="Annual marine fish production"/><Metric value="<5%" label="Biomass reaching pharma-grade extraction"/><Metric value="₹50,000 Cr" label="Estimated annual value gap to be validated"/></div>
-      <p className="mt-5 text-xs text-slate-500">Market and production figures are placeholders for validation before public launch.</p></div>
-    </section>
-
-    <section className="section-pad bg-[#04111e]">
-      <div className="section-shell"><div className="section-kicker">Why Green Processing</div><h2 className="section-title">The Next Generation of Marine Processing</h2><div className="mt-12 grid gap-6 lg:grid-cols-2"><Compare title="Conventional Processing" tone="red" items={['High-temperature extraction can damage heat-sensitive bioactives','Oxidation can reduce quality, yield and stability','Chemical-intensive methods may generate hazardous residues','Lower value recovery from the same biomass','Higher carbon and environmental burden']}/><Compare title="LipiCure Approach" tone="teal" items={['Low-temperature preservation of bioactive integrity','Digital process intelligence to minimise oxidation risk','Green chemistry with reduced harmful solvents and residues','Higher value recovery from each kilogram of biomass','Circular bioeconomy thinking across all fractions']}/></div></div>
-    </section>
-
-    <section className="section-pad bg-ocean-900">
-      <div className="section-shell"><div className="section-kicker">Marine Biorefinery</div><h2 className="section-title">One Biomass. Multiple High-Value Products.</h2><div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{[
-        ['Omega-3 Lipids','EPA and DHA for nutraceutical and pharmaceutical pathways',Waves],['Marine Proteins','Hydrolysates and high-purity concentrates',Dna],['Marine Collagen','Type I and II collagen for health and cosmetics',ShieldCheck],['Bioactive Peptides','Functional peptides with potential therapeutic value',Atom],['Chitin and Chitosan','Marine polysaccharides for pharma and agriculture',Leaf],['Marine Minerals','Calcium, phosphorus and trace bioelements',Globe2],['Marine Pigments','Astaxanthin, carotenoids and specialty colorants',Microscope],['Bioactive Compounds','Enzymes, antimicrobials and specialty actives',FlaskConical]
-      ].map(([t,d,I])=><motion.article {...fade} key={String(t)} className="grid-card p-6"><I className="mb-5 text-cyanx"/><h3 className="text-lg font-semibold">{t as string}</h3><p className="mt-3 text-sm leading-7 text-slate-400">{d as string}</p></motion.article>)}</div><p className="mt-10 text-center text-xl text-cyanx">Every fraction has value. Nothing should become waste.</p></div>
-    </section>
-
-    <section id="platform" className="section-pad bg-[#03101b]">
-      <div className="section-shell"><div className="section-kicker">LipiCure Platform</div><h2 className="section-title">A Market-Driven Marine Biotechnology Innovation System</h2><div className="mt-12 grid gap-4 lg:grid-cols-5">{[['01','Research & Collaborative Innovation'],['02','Marine Bioprocess Intelligence Platform'],['03','Technology Development'],['04','Intellectual Property Portfolio'],['05','Technology Commercialisation']].map(([n,t])=><div className="grid-card p-5" key={n}><div className="text-3xl text-cyanx">{n}</div><h3 className="mt-10 font-semibold leading-6">{t}</h3></div>)}</div><div className="mt-8 grid gap-4 md:grid-cols-3"><Positioning title="Not a manufacturer" text="A future GMP demonstration unit is a credibility and validation engine, not the primary revenue model."/><Positioning title="Not a CRO" text="Market intelligence and portfolio logic decide what is built, rather than one-off client briefs."/><Positioning title="Not a research lab" text="Every project begins with a validated industrial need and aims to end with a licensable technology package."/></div></div>
-    </section>
-
-    <section className="section-pad bg-ocean-900">
-      <div className="section-shell"><div className="section-kicker">Marine Bioprocess Intelligence</div><h2 className="section-title">Digital Intelligence for Every Stage of Process Development</h2><div className="mt-12 grid gap-6 lg:grid-cols-2"><SystemCard title="Opportunity Intelligence System" subtitle="Used before R&D begins" items={['Market intelligence and customer-needs analysis','Academic research and patent landscape scanning','Industrial value-stream mapping across key process nodes','Regulatory intelligence — FSSAI, FDA, EFSA and EMA pathways','Opportunity scoring using weighted commercial criteria','Portfolio balance and R&D prioritisation','Output: Technology Development Specification (TDS)']}/><SystemCard title="Process Development System" subtitle="Used after technology selection" items={['Mathematical process simulation and modelling','Experimental design and statistical analysis (DOE)','Critical process parameter mapping','Digital process model development','Process optimisation and design-space definition','Technology readiness level progression','Technology Package preparation for licensing']}/></div><div className="mt-8 rounded-2xl border border-cyan-300/15 bg-cyan-300/5 p-6 text-sm leading-7 text-slate-300">PEARL-X currently supports digital-first hypothesis generation, design-space exploration and process-development decision support. Simulation outputs remain predictions until calibrated and experimentally validated. This distinction is central to LipiCure&apos;s scientific governance.</div></div>
-    </section>
-
-    <section className="section-pad bg-[#04111e]">
-      <div className="section-shell">
-        <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-          <motion.div {...fade}>
-            <div className="section-kicker">Why LipiCure Exists</div>
-            <h2 className="section-title">A founder’s journey from industrial systems to marine biotechnology</h2>
-            <p className="section-copy">Nearly two decades in heavy engineering, manufacturing quality and complex project environments built a belief that breakthroughs become valuable only when they can be translated into repeatable systems. Lean, the Toyota Production System, Lean Startup and Agile sharpened that belief. Later exposure to Kanniyakumari’s marine economy, followed by conversations with industry people, scientists and incubators, revealed a large gap between India’s marine-resource strength and its high-value biotechnology output.</p>
-            <div className="mt-7 flex flex-wrap gap-4"><a href="/founder-story" className="inline-flex items-center gap-2 rounded-xl bg-cyanx px-5 py-4 font-semibold text-ocean-950">Read the founder story <ArrowRight size={18}/></a><a href="/founders-desk" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-4 font-semibold">From the Founder’s Desk</a></div>
-          </motion.div>
-          <div className="founder-path">
-            {['Heavy Engineering','Lean & TPS','Lean Startup','Kanniyakumari','Scientific Network','LipiCure'].map((item,index)=><div key={item} className="founder-path-item"><span>{String(index+1).padStart(2,'0')}</span><strong>{item}</strong></div>)}
+      <section className="surface-section opportunity" id="opportunity">
+        <div className="shell">
+          <div className="section-head reveal">
+            <div><p className="eyebrow">The opportunity · Deck 02</p><h2>Abundance is only the beginning.</h2></div>
+            <p>India has marine biomass and scientific talent. LipiCure is building the translation system that moves both toward validated, high-value biotechnology.</p>
+          </div>
+          <div className="value-current reveal" aria-label="Marine bioeconomy value chain">
+            {[["Ocean", "Natural capital"], ["Biomass", "Pelagic feedstock"], ["Bioactives", "Molecules & fractions"], ["Products", "Health & industry"], ["Circularity", "Value from every fraction"]].map(([title, sub], i) => (
+              <div className="current-node" key={title}><span>{String(i + 1).padStart(2, "0")}</span><strong>{title}</strong><small>{sub}</small></div>
+            ))}
+            <div className="current-line"><i /></div>
+          </div>
+          <div className="translation-proof reveal">
+            <article><span>ORCHESTRATE</span><h3>Use what India has already built.</h3><p>Connect public research infrastructure, specialist laboratories, scientists and industry capability around a defined translation problem.</p></article>
+            <article><span>INTEGRATE</span><h3>Build the missing pathway.</h3><p>Join market need, process modelling, experimental evidence, IP and scale-up logic into one governed development system.</p></article>
+            <article><span>DEMOCRATIZE</span><h3>Let contribution create opportunity.</h3><p>Give serious contributors visible roles, fair recognition and pathways into authorship, technology development and venture building.</p></article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section className="section-pad bg-ocean-900">
-      <div className="section-shell">
-        <div className="section-kicker">Open Innovation</div><h2 className="section-title">Build the platform with us</h2>
-        <p className="section-copy">LipiCure is in active discussion with PhD researchers, professors, industry specialists, incubator mentors and prospective scientific collaborators. We invite people who believe in the vision to contribute through clearly governed, fair and long-term collaboration.</p>
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          <Audience icon={<GraduationCap/>} title="Academic Partners" text="Connect research capability with validated industrial problems, commercial pathways and technology translation."/>
-          <Audience icon={<Microscope/>} title="PhD Researchers" text="Contribute domain expertise through defined projects, publications, evidence generation and potential venture pathways."/>
-          <Audience icon={<BriefcaseBusiness/>} title="Industry Experts" text="Bring process pain points, market requirements and scale-up knowledge into technology-development sprints."/>
-          <Audience icon={<Sparkles/>} title="Mentors" text="Strengthen scientific governance, grants, regulatory strategy, partnerships and venture execution."/>
+      <section className="surface-section lead-project" id="lead-project">
+        <div className="shell lead-project-grid">
+          <div className="lead-project-copy reveal"><p className="eyebrow">Live contribution opportunity</p><h2>Help build the Omega-3 demonstration project.</h2><p>Our lead project explores a low-temperature marine-bioprocess pathway for protecting lipid quality, improving purification and translating South Indian pelagic biomass into an evidence-backed technology package.</p><div className="project-tags"><span>Process modelling</span><span>Lipid science</span><span>Analytics</span><span>Scale-up</span><span>Regulatory</span></div><a className="button-primary" href="/build-together">See open contribution paths <span>↗</span></a></div>
+          <div className="project-readout reveal"><div><small>PROJECT STATE</small><strong>ACTIVE DEVELOPMENT</strong></div><div><small>CURRENT LAYER</small><strong>MODEL → EVIDENCE</strong></div><div><small>CONTRIBUTORS NEEDED</small><strong>SCIENCE · INDUSTRY · TRANSLATION</strong></div><p>Predictions remain separate from validated evidence. Experimental work, authorship, IP and venture participation follow clearly defined contribution pathways.</p></div>
         </div>
-        <div className="mt-8"><a href="/collaboration" className="inline-flex items-center gap-2 text-cyanx">Read our collaboration principles <ArrowRight size={18}/></a></div>
-      </div>
-    </section>
+      </section>
 
-    <section className="section-pad bg-[#03101b]">
-      <div className="section-shell">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><div><div className="section-kicker">Knowledge Hub</div><h2 className="section-title">A living window into the market, research and our progress</h2></div><a href="/knowledge" className="inline-flex items-center gap-2 text-cyanx">Explore the Knowledge Hub <ArrowRight size={18}/></a></div>
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          <KnowledgeCard icon={<BookOpen/>} label="Insights" title="Blue bioeconomy and marine biotechnology" text="Fortnightly research-informed articles on markets, processing technologies, regulation and commercialisation." href="/insights"/>
-          <KnowledgeCard icon={<Newspaper/>} label="Monthly" title="From the Founder’s Desk" text="What we are learning, building, reading and seeking as LipiCure progresses." href="/founders-desk"/>
-          <KnowledgeCard icon={<Network/>} label="Progress" title="News and venture updates" text="A transparent record of collaborations, research milestones, grants, events and company-building progress." href="/news"/>
+      <section className="surface-section processing">
+        <div className="shell">
+          <div className="section-head reveal"><div><p className="eyebrow">Why green processing · Deck 03</p><h2>Protect the molecule.<br/>Upgrade the value.</h2></div><p>A process architecture designed around heat-sensitive marine bioactives, oxidation control and complete biomass utilisation.</p></div>
+          <div className="comparison reveal">
+            <article className="process-card conventional"><p className="card-tag">Conventional route</p><h3>Value is lost in processing.</h3>{["High-temperature exposure", "Oxidation and quality loss", "Chemical-intensive separation", "Low-value residual fractions", "Higher environmental burden"].map(x => <div className="check-row" key={x}><b>×</b>{x}</div>)}</article>
+            <div className="process-core" aria-hidden="true"><span>LOW<br/>TEMP</span><i/><em>Digital process intelligence</em></div>
+            <article className="process-card lipicure"><p className="card-tag">LipiCure route</p><h3>Integrity is engineered in.</h3>{["Low-temperature preservation", "Oxidation-aware decisions", "Reduced harmful residues", "Higher value per kilogram", "Circular fraction recovery"].map(x => <div className="check-row" key={x}><b>✓</b>{x}</div>)}</article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section className="section-pad bg-[#03101b]">
-      <div className="section-shell"><div className="section-kicker">Collaboration</div><h2 className="section-title">Join the Platform</h2><div className="mt-12 grid gap-5 lg:grid-cols-3"><Audience icon={<Microscope/>} title="Scientists & Researchers" text="Bring deep laboratory expertise and gain access to validated industrial problems, venture pathways and commercialisation support."/><Audience icon={<Factory/>} title="Industry Partners" text="Bring difficult marine-processing challenges and collaborate on technology packages built for industrial adoption and licensing."/><Audience icon={<CircleDollarSign/>} title="Investors" text="Participate in a platform addressing the conversion of abundant marine biomass into higher-value technologies and products."/></div></div>
-    </section>
+      <section className="surface-section biorefinery" id="platform">
+        <div className="shell">
+          <div className="section-head reveal"><div><p className="eyebrow">Marine biorefinery · Deck 04</p><h2>One biomass.<br/>Multiple futures.</h2></div><p>Hover or tap a fraction to bring it forward. Every stream is treated as a potential product—not an unavoidable waste.</p></div>
+          <div className="product-orbit reveal">
+            <div className="orbit-core"><span>LipiCure</span><strong>Whole-biomass<br/>value system</strong><i/></div>
+            <div className="product-grid">{bioProducts.map(([n, title, text]) => <article className="bio-card" key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+          </div>
+          <p className="manifesto reveal">Every fraction has value. Nothing should become waste.</p>
+        </div>
+      </section>
 
-    <section className="section-pad bg-ocean-900">
-      <div className="section-shell grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-        <div><div className="section-kicker">Follow the Journey</div><h2 className="section-title">Research, industry learning and collaboration updates</h2><p className="section-copy">Follow LipiCure’s LinkedIn page for scientific discussions, market observations, platform-development progress and invitations to collaborate.</p></div>
-        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-3 rounded-xl border border-cyan-300/30 bg-cyan-300/5 px-6 py-4 font-semibold text-cyanx"><Linkedin size={20}/> Visit LipiCure on LinkedIn</a>
-      </div>
-    </section>
+      <section className="surface-section intelligence" id="pearl-x">
+        <div className="shell pearl-layout">
+          <div className="pearl-intro reveal"><p className="eyebrow">PEARL-X · Deck 05</p><h2>The digital nervous system for marine bioprocess development.</h2><p>PEARL-X connects market intelligence, simulation, experimental design and technology translation—without presenting predictions as proven evidence.</p><a className="text-link" href="#collaborate">Explore the platform <span>↗</span></a></div>
+          <div className="pearl-console reveal">
+            <div className="console-bar"><span/><span/><span/><b>PEARL-X / DEVELOPMENT SEQUENCE</b><em>LIVE MODEL</em></div>
+            <div className="console-body">
+              <div className="stage-list">{pearlStages.map((item, i) => <button className={i === activeStage ? "active" : ""} onClick={() => setActiveStage(i)} key={item.id}><span>{item.id}</span>{item.title}</button>)}</div>
+              <div className="stage-detail" key={stage.id}><p>STAGE {stage.id}</p><h3>{stage.title}</h3><div className="signal"><i/><i/><i/><i/><i/><i/></div><p>{stage.detail}</p><small>OUTPUT</small><strong>{stage.output}</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <section className="section-pad bg-ocean-900"><Newsletter/></section>
+      <section className="surface-section founder" id="founders">
+        <div className="shell founder-grid">
+          <div className="founder-copy reveal"><p className="eyebrow">The founding journey · Deck 06</p><h2>An idea gaining energy, people and possibility.</h2><p>LipiCure began where industrial systems thinking met the blue bioeconomy. It did not remain a single-person idea. Every conversation with an industry expert sharpened the problem; every academic scientist added scientific depth; every mentor and builder expanded what the venture could become.</p><p>We see founders as the people who genuinely contribute to the idea, strengthen it and help it grow. As more minds join, LipiCure becomes larger than the thought that first started it.</p><a className="button-secondary" href="/founders-journey">Read the founders’ journey <span>→</span></a></div>
+          <div className="journey-depth reveal">{["Industrial experience", "Marine opportunity", "Academic science", "Industry insight", "Collective building", "A growing LipiCure"].map((x, i) => <div key={x}><span>{String(i + 1).padStart(2, "0")}</span><strong>{x}</strong><i /></div>)}</div>
+        </div>
+      </section>
 
-    <section className="section-pad bg-gradient-to-br from-ocean-800 to-ocean-950"><div className="section-shell text-center"><div className="section-kicker">The next chapter</div><h2 className="section-title">Engineering the Blue Bioeconomy — Together</h2><p className="section-copy mx-auto">We are building the next generation of marine biotechnology products. Omega-3 is our first demonstration project.</p><div className="mt-8 flex flex-wrap justify-center gap-4"><a href="/contact" className="rounded-xl bg-cyanx px-6 py-4 font-semibold text-ocean-950">Partner With Us</a><a href="/technology" className="rounded-xl border border-white/20 px-6 py-4 font-semibold">View Our Technology</a></div></div></section>
-    <Footer/>
-  </main>
+      <section className="surface-section collaboration" id="collaborate">
+        <div className="shell">
+          <div className="section-head reveal"><div><p className="eyebrow">Build together · Deck 07</p><h2>Find the door where<br/>you can contribute.</h2></div><p>LipiCure is an orchestrator and integrator: a translation platform connecting existing public R&amp;D infrastructure, scientific depth, industrial problems and venture execution.</p></div>
+          <div className="role-grid reveal">
+            <Role n="01" title="Academic scientists" text="Shape a method, review a model or lead an experiment." returnText="Authorship, visible scientific credit and a translation pathway." />
+            <Role n="02" title="PhD researchers" text="Own a defined evidence question within the Omega-3 project." returnText="Publication, portfolio evidence and venture participation pathways." />
+            <Role n="03" title="Industry specialists" text="Review equipment, quality, scale-up, supply-chain or regulatory assumptions." returnText="Recognition, technology access and a pathway into the building team." />
+            <Role n="04" title="Mentors & builders" text="Strengthen governance, grants, IP, partnerships and execution systems." returnText="A clearly scoped role with contribution-linked participation." />
+          </div>
+          <div className="collaboration-cta reveal"><p>Every engagement begins with a defined problem, contribution, output, recognition route and confidentiality boundary. The full governance framework is being formalized before project commitments are made.</p><a className="button-secondary" href="/build-together">Explore the collaboration pathway <span>→</span></a></div>
+        </div>
+      </section>
+
+      <section className="surface-section knowledge" id="knowledge">
+        <div className="shell">
+          <div className="section-head reveal"><div><p className="eyebrow">Knowledge hub · Deck 08</p><h2>A living window into what we learn and build.</h2></div><p>Regular research, market and founder updates keep the platform active, transparent and discoverable.</p></div>
+          <div className="knowledge-grid reveal"><Knowledge type="PUBLIC RESEARCH TOOL" title="AI-guided biotechnology research" text="Explore India’s biotechnology laboratory facilities through a transparent public-data index." href="/ai-biotech-research"/><Knowledge type="FOUNDERS’ JOURNEY" title="The idea is gaining energy" text="How scientists, industry experts, mentors and builders are expanding LipiCure together." href="/founders-journey"/><Knowledge type="MILESTONES" title="Venture updates" text="A transparent record of collaborations, research, grants, events and company building."/></div>
+        </div>
+      </section>
+
+      <footer className="final-dive" id="contact">
+        <div className="shell final-inner reveal"><p className="eyebrow">The next chapter</p><h2>Build marine biotechnology<br/>translation—together.</h2><p>Omega-3 is the first live demonstration project. The contributor platform is the larger journey.</p><div className="final-actions"><a className="button-primary" href="/build-together">Build together <span>↗</span></a><a className="button-secondary" href="#pearl-x">Explore PEARL-X <span>→</span></a></div></div>
+        <div className="footer-line"><div className="shell"><strong>Lipi<span>Cure</span></strong><p>Marine Biotechnology Translation Platform · India</p><small><a href="https://www.linkedin.com/company/lipicure-deeptech/" target="_blank" rel="noreferrer">LinkedIn ↗</a> · © 2026</small></div></div>
+      </footer>
+    </main>
+  );
 }
 
-function Stat({value,label}:{value:string,label:string}){return <div className="glass rounded-2xl px-5 py-4"><strong className="block text-xl text-cyanx">{value}</strong><span className="text-xs text-slate-300">{label}</span></div>}
-function Metric({value,label}:{value:string,label:string}){return <div className="grid-card p-6"><strong className="block text-3xl text-cyanx">{value}</strong><span className="mt-3 block text-sm text-slate-400">{label}</span></div>}
-function Compare({title,items,tone}:{title:string,items:string[],tone:'red'|'teal'}){return <div className={`rounded-2xl border p-7 ${tone==='red'?'border-red-400/20 bg-red-400/5':'border-cyan-300/20 bg-cyan-300/5'}`}><h3 className={`text-2xl font-semibold ${tone==='red'?'text-red-300':'text-cyanx'}`}>{title}</h3><ul className="mt-6 space-y-4 text-slate-300">{items.map(i=><li key={i} className="flex gap-3"><span>{tone==='red'?'×':'✓'}</span><span>{i}</span></li>)}</ul></div>}
-function Positioning({title,text}:{title:string,text:string}){return <div className="rounded-2xl border border-cyan-300/15 bg-white/[.02] p-6"><h3 className="text-lg font-semibold text-cyanx">{title}</h3><p className="mt-3 text-sm leading-7 text-slate-400">{text}</p></div>}
-function SystemCard({title,subtitle,items}:{title:string,subtitle:string,items:string[]}){return <div className="grid-card p-7"><div className="text-xs uppercase tracking-[.18em] text-cyanx">{subtitle}</div><h3 className="mt-3 text-2xl font-semibold">{title}</h3><ul className="mt-6 space-y-3 text-sm leading-6 text-slate-300">{items.map(i=><li key={i} className="flex gap-3"><span className="text-cyanx">•</span>{i}</li>)}</ul></div>}
-function Audience({icon,title,text}:{icon:React.ReactNode,title:string,text:string}){return <div className="grid-card p-7"><div className="text-cyanx">{icon}</div><h3 className="mt-6 text-2xl font-semibold">{title}</h3><p className="mt-4 leading-7 text-slate-400">{text}</p></div>}
-
-function KnowledgeCard({icon,label,title,text,href}:{icon:React.ReactNode,label:string,title:string,text:string,href:string}){return <a href={href} className="knowledge-card grid-card p-7"><div className="flex items-center justify-between"><div className="text-cyanx">{icon}</div><span className="text-xs uppercase tracking-[.16em] text-slate-500">{label}</span></div><h3 className="mt-8 text-2xl font-semibold">{title}</h3><p className="mt-4 leading-7 text-slate-400">{text}</p><span className="mt-6 inline-flex items-center gap-2 text-sm text-cyanx">Open section <ArrowRight size={16}/></span></a>}
+function Role({ n, title, text, returnText }: { n: string; title: string; text: string; returnText: string }) { return <article className="role-card"><span>{n}</span><div className="role-symbol">✦</div><h3>{title}</h3><p><b>CONTRIBUTE</b>{text}</p><p><b>PATHWAY</b>{returnText}</p><a href="/build-together" aria-label={`Build with LipiCure as ${title}`}>↗</a></article>; }
+function Knowledge({ type, title, text, href }: { type: string; title: string; text: string; href?: string }) { const card = <article className="knowledge-card"><div><span>{type}</span><i>↗</i></div><h3>{title}</h3><p>{text}</p><b>OPEN SECTION <em>→</em></b></article>; return href ? <a href={href}>{card}</a> : card; }
