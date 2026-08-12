@@ -20,14 +20,22 @@ export default function DeepOceanHero() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     let width = 0, height = 0, raf = 0;
-    const fish = Array.from({ length: window.innerWidth < 700 ? 13 : 38 }, (_, i) => {
+    const fish = Array.from({ length: window.innerWidth < 700 ? 6 : 16 }, (_, i) => {
       const depth = Math.random();
-      return { x: .48 + Math.random() * .57, y: .2 + Math.random() * .31, s: .22 + depth * .34, v: .00003 + depth * .000045, p: i * .73, a: .16 + depth * .27 };
+      return { x: .5 + Math.random() * .58, y: .2 + Math.random() * .34, s: .38 + depth * .34, v: .000012 + depth * .000014, p: i * 1.17, a: .22 + depth * .28, arc: .006 + Math.random() * .018, arcSpeed: .00018 + Math.random() * .00016 };
     });
     const particles = Array.from({ length: window.innerWidth < 700 ? 35 : 90 }, () => ({ x: Math.random(), y: Math.random(), r: .4 + Math.random() * 1.4, v: .00002 + Math.random() * .00006 }));
     const size = () => { const dpr = Math.min(window.devicePixelRatio, 1.5); width = hero.clientWidth; height = hero.clientHeight; canvas.width = width * dpr; canvas.height = height * dpr; canvas.style.width = `${width}px`; canvas.style.height = `${height}px`; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
-    const drawFish = (x:number,y:number,s:number,t:number,alpha:number) => { ctx.save();ctx.translate(x,y+Math.sin(t)*1.4);ctx.scale(s,s);ctx.globalAlpha=alpha;const body=ctx.createLinearGradient(-30,-5,27,5);body.addColorStop(0,"#174f67");body.addColorStop(.22,"#3e8196");body.addColorStop(.48,"#b9d8dd");body.addColorStop(.64,"#6fa7b4");body.addColorStop(1,"#174a60");ctx.fillStyle=body;ctx.beginPath();ctx.moveTo(-30,0);ctx.bezierCurveTo(-21,-5.6,8,-6.3,25,-1.4);ctx.bezierCurveTo(10,5.5,-20,5.8,-30,0);ctx.fill();ctx.fillStyle="#245f75";ctx.beginPath();ctx.moveTo(24,-1);ctx.lineTo(36,-7);ctx.lineTo(31,0);ctx.lineTo(36,7);ctx.lineTo(24,2);ctx.closePath();ctx.fill();ctx.beginPath();ctx.moveTo(0,-5.2);ctx.lineTo(9,-9);ctx.lineTo(12,-5);ctx.closePath();ctx.fill();ctx.strokeStyle="rgba(211,241,243,.52)";ctx.lineWidth=.55;ctx.beginPath();ctx.moveTo(-22,.4);ctx.quadraticCurveTo(2,1.6,22,0);ctx.stroke();ctx.fillStyle="#032c3b";ctx.beginPath();ctx.arc(-21.8,-1.5,1.25,0,Math.PI*2);ctx.fill();ctx.fillStyle="rgba(235,255,255,.8)";ctx.beginPath();ctx.arc(-22.2,-1.8,.4,0,Math.PI*2);ctx.fill();ctx.restore(); };
-    const frame = (time:number) => { ctx.clearRect(0,0,width,height);particles.forEach(p=>{p.y-=p.v*16;if(p.y<0)p.y=1;ctx.globalAlpha=.2;ctx.fillStyle="#b8ffff";ctx.beginPath();ctx.arc(p.x*width,p.y*height,p.r,0,Math.PI*2);ctx.fill()});fish.forEach(f=>{f.x-=f.v*16;if(f.x<.44)f.x=1.08;drawFish(f.x*width,f.y*height,f.s,time*.001+f.p,f.a)});raf=requestAnimationFrame(frame); };
+    const drawFish = (x:number,y:number,s:number,swim:number,alpha:number,tilt:number) => {
+      ctx.save();ctx.translate(x,y);ctx.rotate(tilt);ctx.scale(s,s);ctx.globalAlpha=alpha;
+      const body=ctx.createLinearGradient(0,-10,0,10);body.addColorStop(0,"#276f8b");body.addColorStop(.28,"#75aebe");body.addColorStop(.52,"#e4f1ee");body.addColorStop(.76,"#9bc5cb");body.addColorStop(1,"#39768b");
+      ctx.fillStyle=body;ctx.beginPath();ctx.moveTo(-36,0);ctx.bezierCurveTo(-27,-8.5,9,-10.5,29,-2.2);ctx.bezierCurveTo(13,8.4,-24,8.8,-36,0);ctx.fill();
+      const wag=Math.sin(swim)*2.2;ctx.fillStyle="#397b91";ctx.beginPath();ctx.moveTo(27,-2.2);ctx.lineTo(45,-10+wag);ctx.lineTo(39,0);ctx.lineTo(45,10+wag);ctx.lineTo(27,2.2);ctx.closePath();ctx.fill();
+      ctx.fillStyle="rgba(61,132,151,.9)";ctx.beginPath();ctx.moveTo(-1,-8.4);ctx.lineTo(10,-13);ctx.lineTo(15,-7.3);ctx.closePath();ctx.fill();ctx.beginPath();ctx.moveTo(4,6.8);ctx.lineTo(14,11);ctx.lineTo(17,5.5);ctx.closePath();ctx.fill();
+      ctx.strokeStyle="rgba(235,255,252,.72)";ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(-29,1);ctx.quadraticCurveTo(-1,2.5,26,.2);ctx.stroke();ctx.strokeStyle="rgba(14,73,91,.52)";ctx.beginPath();ctx.arc(-26,0,6,-1.05,1.05);ctx.stroke();
+      ctx.fillStyle="#062c39";ctx.beginPath();ctx.arc(-28,-2.4,1.45,0,Math.PI*2);ctx.fill();ctx.fillStyle="rgba(242,255,252,.94)";ctx.beginPath();ctx.arc(-28.4,-2.8,.48,0,Math.PI*2);ctx.fill();ctx.restore();
+    };
+    const frame = (time:number) => { ctx.clearRect(0,0,width,height);particles.forEach(p=>{p.y-=p.v*16;if(p.y<0)p.y=1;ctx.globalAlpha=.2;ctx.fillStyle="#b8ffff";ctx.beginPath();ctx.arc(p.x*width,p.y*height,p.r,0,Math.PI*2);ctx.fill()});fish.forEach(f=>{f.x-=f.v*16;if(f.x<.43)f.x=1.09;const arc=Math.sin(time*f.arcSpeed+f.p)*f.arc;const tilt=Math.cos(time*f.arcSpeed+f.p)*.035;drawFish(f.x*width,(f.y+arc)*height,f.s,time*.005+f.p,f.a,tilt)});raf=requestAnimationFrame(frame); };
     const move = (e:PointerEvent) => { const r=hero.getBoundingClientRect();hero.style.setProperty("--mx",String((e.clientX-r.left)/r.width-.5));hero.style.setProperty("--my",String((e.clientY-r.top)/r.height-.5)); };
     size();window.addEventListener("resize",size);hero.addEventListener("pointermove",move);raf=requestAnimationFrame(frame);
     return()=>{cancelAnimationFrame(raf);window.removeEventListener("resize",size);hero.removeEventListener("pointermove",move)};
