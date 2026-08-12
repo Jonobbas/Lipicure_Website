@@ -1,4 +1,3 @@
-@import "tailwindcss";
 @import "./refinements.css";
 
 :root{--ink:#eaffff;--muted:#92b5bd;--cyan:#53f3e9;--cyan2:#21bad0;--deep:#020b13;--panel:#061d2a;--line:rgba(109,234,231,.17)}
@@ -24,4 +23,3 @@
 .depth-readout{left:30px;right:auto;color:#9ce1e3}
 .hero-nav{height:74px;border-bottom-color:rgba(133,238,234,.11);backdrop-filter:blur(6px);background:linear-gradient(rgba(3,17,29,.62),rgba(3,17,29,.12))}
 @media(max-width:680px){.hero-nav{height:66px}.ocean-lens{background:linear-gradient(90deg,rgba(1,10,18,.84),rgba(1,12,22,.38) 72%,rgba(1,12,22,.08)),linear-gradient(0deg,rgba(2,11,19,.82),transparent 34%)}}
-/* Validated hero refinement deployment. */
