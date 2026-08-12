@@ -20,7 +20,9 @@
 .hero-image{filter:brightness(1.12) saturate(1.06)}
 .ocean-lens{background:linear-gradient(90deg,rgba(1,10,18,.82) 0%,rgba(2,16,29,.52) 29%,rgba(1,17,28,.04) 58%),linear-gradient(0deg,rgba(2,11,19,.86) 0%,transparent 20%,rgba(0,10,18,.06) 76%,rgba(0,6,12,.38))}
 .caustics{opacity:.18}
-.depth-readout{left:30px;right:auto;color:#9ce1e3}
+.depth-readout{left:clamp(8px,1.1vw,18px);right:auto;color:#9ce1e3}
+.pelagic-school{position:absolute;z-index:3;inset:0;overflow:hidden;pointer-events:none}.pelagic-school img{position:absolute;left:calc(100vw + var(--fish-start));top:var(--fish-y);width:var(--fish-w);height:auto;opacity:1;transform-origin:center;animation:pelagic-cross var(--fish-duration) linear var(--fish-delay) infinite;will-change:transform,filter}@keyframes pelagic-cross{0%{transform:translate3d(0,0,0) rotate(var(--fish-tilt));filter:brightness(.96) saturate(.78) contrast(.91) drop-shadow(0 2px 7px rgba(0,73,105,.2))}28%{transform:translate3d(calc(-28vw - 150px),var(--fish-rise),0) rotate(var(--fish-tilt));filter:brightness(.86) saturate(.8) contrast(.9) drop-shadow(0 2px 7px rgba(0,63,97,.18))}56%{transform:translate3d(calc(-56vw - 330px),0,0) rotate(var(--fish-tilt));filter:brightness(.76) saturate(.82) contrast(.89) drop-shadow(0 2px 6px rgba(0,48,78,.16))}78%{transform:translate3d(calc(-78vw - 500px),var(--fish-rise),0) rotate(var(--fish-tilt));filter:brightness(.66) saturate(.84) contrast(.88) drop-shadow(0 2px 5px rgba(0,38,67,.14))}100%{transform:translate3d(calc(-100vw - 920px),0,0) rotate(var(--fish-tilt));filter:brightness(.58) saturate(.86) contrast(.87) drop-shadow(0 2px 5px rgba(0,30,55,.12))}}
+@media(max-width:680px){.pelagic-school img{scale:.72}.pelagic-school img:nth-child(n+5){display:none}}
 .hero-nav{height:74px;border-bottom-color:rgba(133,238,234,.11);backdrop-filter:blur(6px);background:linear-gradient(rgba(3,17,29,.62),rgba(3,17,29,.12))}
 @media(max-width:680px){.hero-nav{height:66px}.ocean-lens{background:linear-gradient(90deg,rgba(1,10,18,.84),rgba(1,12,22,.38) 72%,rgba(1,12,22,.08)),linear-gradient(0deg,rgba(2,11,19,.82),transparent 34%)}}
 .hero-image{background-image:url('/images/lipicure-hero-v2.png')}
