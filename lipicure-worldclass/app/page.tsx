@@ -1,7 +1,5 @@
 "use client";
 
-// Immersive main-page checkpoint; the previous homepage remains recoverable in Git.
-
 import { useState } from "react";
 import DeepOceanHero from "@/components/deep-ocean-hero";
 
@@ -10,6 +8,8 @@ const oceanBubbles = [
   [31, 2, 16, -12], [38, 5, 28, -4], [46, 3, 19, -21], [53, 4, 25, -10],
   [61, 2, 17, -28], [68, 5, 27, -15], [74, 3, 20, -6], [81, 4, 23, -24],
   [87, 2, 15, -13], [93, 5, 26, -31], [15, 2, 13, -34], [57, 2, 15, -37],
+  [8, 2, 17, -40], [21, 3, 23, -45], [35, 2, 15, -42], [49, 4, 26, -48],
+  [72, 2, 18, -41], [90, 3, 22, -46],
 ];
 
 const bioProducts = [
