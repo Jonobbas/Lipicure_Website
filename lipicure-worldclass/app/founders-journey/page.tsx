@@ -41,7 +41,7 @@ export default function FoundersJourney() {
       </section>
 
       <section className="founders-invitation">
-        <div className="shell founders-invitation-inner reveal"><p className="eyebrow">The story remains open</p><h2>The next founder may be the person who adds the missing piece.</h2><p>This is an invitation to people who believe in shared building—not spectatorship. Scientific depth. Industrial understanding. Regulatory insight. Venture execution. Every meaningful contribution can add new energy to the journey.</p><div className="final-actions"><a className="button-primary" href="mailto:connect@lipicure.com">Contribute to the journey <span>↗</span></a><a className="button-secondary" href="/">Explore LipiCure <span>→</span></a></div></div>
+        <div className="shell founders-invitation-inner reveal"><p className="eyebrow">The story remains open</p><h2>The next founder may be the person who adds the missing piece.</h2><p>This is an invitation to people who believe in shared building—not spectatorship. Scientific depth. Industrial understanding. Regulatory insight. Venture execution. Every meaningful contribution can add new energy to the journey.</p><div className="final-actions"><a className="button-primary" href="mailto:founder@lipicure.com">Contribute to the journey <span>↗</span></a><a className="button-secondary" href="/">Explore LipiCure <span>→</span></a></div></div>
       </section>
     </main>
   );
