@@ -13,7 +13,6 @@ const companyDetails = [
   { icon: Landmark, label: 'Corporate Identity Number', value: 'U72100TN2026PTC200325' },
   { icon: CalendarDays, label: 'Date of incorporation', value: '18 November 2026' },
   { icon: Scale, label: 'Company type', value: 'Private company limited by shares' },
-  { icon: Scale, label: 'Authorised share capital', value: '₹1,00,000' },
   { icon: Mail, label: 'Official email', value: 'founder@lipicure.com', href: 'mailto:founder@lipicure.com' },
 ];
 
