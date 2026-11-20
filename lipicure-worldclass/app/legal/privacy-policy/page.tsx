@@ -1,0 +1,18 @@
+import type { Metadata } from 'next';
+import LegalPage from '@/components/legal/LegalPage';
+
+export const metadata: Metadata = { title: 'Privacy Policy | LipiCure', description: 'Privacy policy of LipiCure Private Limited.' };
+
+export default function PrivacyPolicyPage() {
+  return <LegalPage eyebrow="Legal & compliance" title="Privacy Policy" summary="This policy explains how LipiCure Private Limited handles personal information received through this website, email and collaboration enquiries.">
+    <section><h2>1. Who we are</h2><p>LIPICURE PRIVATE LIMITED, CIN U72100TN2026PTC200325, is the entity responsible for the personal information described in this policy. Our registered office is at C/O Meenakumari, Sudalaiyandinadar, Kottar, Agastheeswaram, Kanyakumari – 629002, Tamil Nadu, India.</p></section>
+    <section><h2>2. Information we may receive</h2><p>We may receive your name, email address, telephone number, professional role, organisation, scientific or industry interests, contribution proposal, and information you choose to include in correspondence. Our hosting and security providers may also process limited technical information such as IP address, browser type, request time and security logs.</p></section>
+    <section><h2>3. Why we use it</h2><ul><li>To respond to enquiries and evaluate potential research, industry, investment or contributor relationships.</li><li>To operate, secure and improve the website.</li><li>To maintain appropriate business, compliance and communication records.</li><li>To send updates only where you have requested or agreed to receive them.</li></ul></section>
+    <section><h2>4. Data minimisation</h2><p>Please do not send patient data, medical records, passwords, financial credentials, biometric information, employer-confidential material, unpublished proprietary data or other sensitive information through a website form or introductory email. Where a project requires controlled information, LipiCure will first establish an appropriate agreement and secure exchange method.</p></section>
+    <section><h2>5. Sharing and service providers</h2><p>We do not sell personal information. Information may be processed by service providers supporting email, hosting, security, document management or professional compliance, subject to appropriate purpose and access controls. We may also disclose information where required by applicable law or a competent authority.</p></section>
+    <section><h2>6. Retention and security</h2><p>We retain information only for as long as reasonably necessary for the relevant enquiry, relationship, legal obligation or legitimate record. We use proportionate organisational and technical safeguards; however, no internet transmission or storage system can be guaranteed completely secure.</p></section>
+    <section><h2>7. Your choices and requests</h2><p>You may ask us to provide information about our handling of your personal data, correct inaccurate details, withdraw a communication preference, or request deletion where retention is not legally or operationally required. We may need to verify your identity before acting on a request.</p></section>
+    <section><h2>8. Cookies and external links</h2><p>As of the date of this policy, LipiCure does not intentionally use advertising cookies or behavioural advertising technologies. Essential hosting or security technologies may operate as necessary. External websites linked from this site apply their own privacy practices.</p></section>
+    <section><h2>9. Contact</h2><p>Send privacy questions or requests to <a href="mailto:founder@lipicure.com">founder@lipicure.com</a> with the subject “Privacy Request”.</p></section>
+  </LegalPage>;
+}
