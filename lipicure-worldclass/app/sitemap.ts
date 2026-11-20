@@ -24,6 +24,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/news',
     '/blue-bioeconomy',
     '/resources',
+    '/legal',
+    '/legal/privacy-policy',
+    '/legal/terms-of-use',
+    '/legal/scientific-disclaimer',
+    '/legal/annual-returns',
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = routes.map((path) => ({
